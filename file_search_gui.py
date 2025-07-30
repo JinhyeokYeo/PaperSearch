@@ -15,13 +15,15 @@ class FileSearchGUI:
         # Source directory selection
         self.src_dir = tk.StringVar()
         tk.Label(root, text="Source Directory:").grid(row=0, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.src_dir, width=40).grid(row=0, column=1, padx=5)
+        self.src_entry = tk.Entry(root, textvariable=self.src_dir, width=40, state="readonly")
+        self.src_entry.grid(row=0, column=1, padx=5)
         tk.Button(root, text="Browse", command=self.browse_src).grid(row=0, column=2, padx=5)
 
         # CSV file selection
         self.csv_file = tk.StringVar()
         tk.Label(root, text="CSV File:").grid(row=1, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.csv_file, width=40).grid(row=1, column=1, padx=5)
+        self.csv_entry = tk.Entry(root, textvariable=self.csv_file, width=40, state="readonly")
+        self.csv_entry.grid(row=1, column=1, padx=5)
         tk.Button(root, text="Browse", command=self.browse_csv).grid(row=1, column=2, padx=5)
 
         # Keyword input
@@ -39,7 +41,8 @@ class FileSearchGUI:
         # Destination directory selection
         self.dest_root = tk.StringVar()
         tk.Label(root, text="Destination Root:").grid(row=7, column=0, sticky="w")
-        tk.Entry(root, textvariable=self.dest_root, width=40).grid(row=7, column=1, padx=5)
+        self.dest_entry = tk.Entry(root, textvariable=self.dest_root, width=40, state="readonly")
+        self.dest_entry.grid(row=7, column=1, padx=5)
         tk.Button(root, text="Browse", command=self.browse_dest).grid(row=7, column=2, padx=5)
 
         tk.Label(root, text="New Folder Name:").grid(row=8, column=0, sticky="w")
